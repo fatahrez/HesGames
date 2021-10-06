@@ -4,7 +4,7 @@ data class GameData(
     val id: Int,
     val title: String,
     val thumbnail: String,
-    val shortDescription: String,
+    val shortDescription: String?,
     val gameUrl: String,
     val genre: String,
     val platform: String,

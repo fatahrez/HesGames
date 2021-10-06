@@ -9,7 +9,7 @@ data class GameLocal(
     @PrimaryKey @ColumnInfo(name = "id") val id: Int,
     @ColumnInfo(name = "title")val title: String,
     @ColumnInfo(name = "thumbnail") val thumbnail: String,
-    @ColumnInfo(name = "short_description") val shortDescription: String,
+    @ColumnInfo(name = "short_description") val shortDescription: String?,
     @ColumnInfo(name = "game_url") val gameUrl: String,
     @ColumnInfo(name = "genre") val genre: String,
     @ColumnInfo(name = "platform") val platform: String,

@@ -2,7 +2,7 @@ package com.fatah.purgegame.di
 
 import android.app.Application
 import android.content.Context
-import com.fatah.purgegame.MainActivity
+import com.fatah.purgegame.ui.MainActivity
 import dagger.Binds
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
