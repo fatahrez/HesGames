@@ -13,10 +13,10 @@ class GetGameUseCase @Inject() constructor(
     @Background val backgroundScheduler: Scheduler,
     @Foreground val foregroundScheduler: Scheduler,
     private val purgeGameRepository: PurgeGameRepository
-): ObservableUseCase<GameEntity, Nothing>(
+): ObservableUseCase<List<GameEntity>, Nothing>(
     foregroundScheduler, backgroundScheduler
 ) {
-    override fun generateObservable(input: Nothing?): Observable<GameEntity> {
+    override fun generateObservable(input: Nothing?): Observable<List<GameEntity>> {
         return purgeGameRepository.getGames()
     }
 }
