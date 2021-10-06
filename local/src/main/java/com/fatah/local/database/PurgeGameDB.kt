@@ -36,5 +36,5 @@ abstract class PurgeGameDB : RoomDatabase(){
         }
     }
 
-//    abstract fun
+    abstract fun gameDao(): GameDao
 }
