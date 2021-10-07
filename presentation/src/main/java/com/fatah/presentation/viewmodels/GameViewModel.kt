@@ -19,8 +19,8 @@ class GameViewModel @Inject internal constructor(
 
     val gameLiveData: LiveData<Resource<List<Game>>>
         get() = getGameUseCase
-        .buildUseCase(null)
-        .map {games ->
+        .buildUseCase()
+        .map { games ->
             games.map {
                 gameDomainPresentationMapper.to(it)
             }
@@ -31,6 +31,6 @@ class GameViewModel @Inject internal constructor(
         .onErrorResumeNext {
             Observable.just(Resource.error(it.localizedMessage))
         }
-        .toFlowable(BackpressureStrategy.LATEST)
+        .toFlowable(BackpressureStrategy.BUFFER)
         .toLiveData()
 }

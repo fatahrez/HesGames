@@ -54,6 +54,7 @@ class RemoteModule {
         return Retrofit.Builder()
             .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
             .addConverterFactory(GsonConverterFactory.create())
+            .client(okHttpClient)
             .baseUrl("https://www.freetogame.com/api/")
             .build()
     }

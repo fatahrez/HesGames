@@ -7,7 +7,7 @@ import com.fatah.domain.repository.PurgeGameRepository
 import io.reactivex.rxjava3.core.Observable
 import javax.inject.Inject
 
-class PurgeGameRepositoryImpl @Inject() constructor(
+class PurgeGameRepositoryImpl @Inject    constructor(
     private val gameDomainDataMapper: Mapper<GameEntity, GameData>,
     private val remoteDataSource: RemoteDataSource,
     private val localDataSource: LocalDataSource
@@ -21,6 +21,7 @@ class PurgeGameRepositoryImpl @Inject() constructor(
             }
 
         return remoteDataSource.getGames().map { games ->
+            localDataSource.saveGames(games)
             games.map {
                 gameDomainDataMapper.from(it)
             }

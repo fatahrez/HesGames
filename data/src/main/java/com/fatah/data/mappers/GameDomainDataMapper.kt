@@ -4,7 +4,7 @@ import com.fatah.data.models.GameData
 import com.fatah.domain.entities.GameEntity
 import javax.inject.Inject
 
-class GameDomainDataMapper @Inject() constructor(): Mapper<GameEntity, GameData> {
+class GameDomainDataMapper @Inject constructor(): Mapper<GameEntity, GameData> {
     override fun from(e: GameData): GameEntity {
         return GameEntity(
             id = e.id,

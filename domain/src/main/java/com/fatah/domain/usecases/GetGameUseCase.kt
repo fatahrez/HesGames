@@ -9,11 +9,11 @@ import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.core.Scheduler
 import javax.inject.Inject
 
-class GetGameUseCase @Inject() constructor(
+class GetGameUseCase @Inject constructor(
+    private val purgeGameRepository: PurgeGameRepository,
     @Background val backgroundScheduler: Scheduler,
     @Foreground val foregroundScheduler: Scheduler,
-    private val purgeGameRepository: PurgeGameRepository
-): ObservableUseCase<List<GameEntity>, Nothing?>(
+): ObservableUseCase<List<GameEntity>, Nothing>(
     foregroundScheduler, backgroundScheduler
 ) {
     override fun generateObservable(input: Nothing?): Observable<List<GameEntity>> {
