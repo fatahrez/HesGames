@@ -1,4 +1,4 @@
-package com.fatah.purgegame.di
+package com.fatah.hesgames.di
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

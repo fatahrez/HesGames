@@ -5,7 +5,7 @@ import io.reactivex.rxjava3.core.Observable
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-interface PurgeGameService {
+interface HesGamesService {
     @GET("games")
     fun getGames(): Observable<List<GameNetwork>>
 

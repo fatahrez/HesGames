@@ -1,11 +1,9 @@
-package com.fatah.purgegame.ui
+package com.fatah.hesgames.ui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.TextView
-import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,7 +12,7 @@ import com.fatah.presentation.factory.ViewModelFactory
 import com.fatah.presentation.models.Game
 import com.fatah.presentation.models.Status
 import com.fatah.presentation.viewmodels.GameViewModel
-import com.fatah.purgegame.R
+import com.fatah.hesgames.R
 import dagger.android.AndroidInjection
 import javax.inject.Inject
 

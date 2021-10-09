@@ -1,6 +1,6 @@
-package com.fatah.purgegame.application
+package com.fatah.hesgames.application
 
-import com.fatah.purgegame.di.DaggerPurgeGameAppComponent
+import com.fatah.hesgames.di.DaggerPurgeGameAppComponent
 import dagger.android.AndroidInjector
 import dagger.android.DaggerApplication
 

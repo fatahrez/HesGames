@@ -12,21 +12,21 @@ import com.fatah.local.models.GameLocal
     version = 2,
     exportSchema = false
 )
-abstract class PurgeGameDB : RoomDatabase(){
+abstract class HesGamesDB : RoomDatabase(){
     companion object{
         private val LOCK = Any()
-        private const val DATABASE_NAME = "purge_game.db"
+        private const val DATABASE_NAME = "hes_games.db"
 
         @Volatile
-        private var INSTANCE: PurgeGameDB? = null
+        private var INSTANCE: HesGamesDB? = null
 
-        fun getInstance(@NonNull context: Context): PurgeGameDB {
+        fun getInstance(@NonNull context: Context): HesGamesDB {
             if (INSTANCE == null) {
                 synchronized(LOCK) {
                     if (INSTANCE == null) {
                         INSTANCE = Room.databaseBuilder(
                             context,
-                            PurgeGameDB::class.java,
+                            HesGamesDB::class.java,
                             DATABASE_NAME
                         )
                             .fallbackToDestructiveMigration().build()

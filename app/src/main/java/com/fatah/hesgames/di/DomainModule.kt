@@ -1,4 +1,4 @@
-package com.fatah.purgegame.di
+package com.fatah.hesgames.di
 
 import com.fatah.domain.qualifiers.Background
 import com.fatah.domain.qualifiers.Foreground

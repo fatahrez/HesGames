@@ -2,7 +2,7 @@ package com.fatah.remote.source
 
 import com.fatah.data.models.GameData
 import com.fatah.data.repository.RemoteDataSource
-import com.fatah.remote.api.PurgeGameService
+import com.fatah.remote.api.HesGamesService
 import com.fatah.remote.mappers.Mapper
 import com.fatah.remote.models.GameNetwork
 import io.reactivex.rxjava3.core.Observable
@@ -10,10 +10,10 @@ import javax.inject.Inject
 
 class RemoteDataSourceImpl @Inject constructor(
     private val gameDataNetworkMapper: Mapper<GameData, GameNetwork>,
-    private val purgeGameService: PurgeGameService
+    private val hesGamesService: HesGamesService
 ): RemoteDataSource{
     override fun getGames(): Observable<List<GameData>> {
-        return purgeGameService.getGames()
+        return hesGamesService.getGames()
             .map {games ->
                 games.map {
                     gameDataNetworkMapper.from(it)
@@ -22,7 +22,7 @@ class RemoteDataSourceImpl @Inject constructor(
     }
 
     override fun getGame(id: Int): Observable<GameData> {
-        return purgeGameService.getGame(id)
+        return hesGamesService.getGame(id)
             .map {
                 gameDataNetworkMapper.from(it)
             }

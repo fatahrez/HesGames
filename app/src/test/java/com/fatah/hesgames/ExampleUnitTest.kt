@@ -1,4 +1,4 @@
-package com.fatah.purgegame
+package com.fatah.hesgames
 
 import org.junit.Test
 

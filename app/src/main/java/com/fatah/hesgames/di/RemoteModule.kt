@@ -1,10 +1,10 @@
-package com.fatah.purgegame.di
+package com.fatah.hesgames.di
 
 import com.fatah.data.models.GameData
 import com.fatah.data.repository.RemoteDataSource
 import com.fatah.remote.api.HttpClient
 import com.fatah.remote.api.HttpLogger
-import com.fatah.remote.api.PurgeGameService
+import com.fatah.remote.api.HesGamesService
 import com.fatah.remote.mappers.GameDataNetworkMapper
 import com.fatah.remote.mappers.Mapper
 import com.fatah.remote.models.GameNetwork
@@ -45,8 +45,8 @@ class RemoteModule {
 
     @Singleton
     @Provides
-    fun providesPurgeGameService(retrofit: Retrofit): PurgeGameService = retrofit.create(
-        PurgeGameService::class.java
+    fun providesPurgeGameService(retrofit: Retrofit): HesGamesService = retrofit.create(
+        HesGamesService::class.java
     )
 
     @Provides

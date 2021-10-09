@@ -1,7 +1,7 @@
-package com.fatah.purgegame.di
+package com.fatah.hesgames.di
 
 import android.app.Application
-import com.fatah.purgegame.application.PurgeGameApp
+import com.fatah.hesgames.application.PurgeGameApp
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule

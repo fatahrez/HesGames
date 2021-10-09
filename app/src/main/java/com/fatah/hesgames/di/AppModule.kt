@@ -1,9 +1,9 @@
-package com.fatah.purgegame.di
+package com.fatah.hesgames.di
 
 import android.app.Application
 import android.content.Context
-import com.fatah.purgegame.ui.GameDetailActivity
-import com.fatah.purgegame.ui.MainActivity
+import com.fatah.hesgames.ui.GameDetailActivity
+import com.fatah.hesgames.ui.MainActivity
 import dagger.Binds
 import dagger.Module
 import dagger.android.ContributesAndroidInjector

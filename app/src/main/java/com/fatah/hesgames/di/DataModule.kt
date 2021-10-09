@@ -1,11 +1,11 @@
-package com.fatah.purgegame.di
+package com.fatah.hesgames.di
 
 import com.fatah.data.mappers.GameDomainDataMapper
 import com.fatah.data.mappers.Mapper
 import com.fatah.data.models.GameData
-import com.fatah.data.repository.PurgeGameRepositoryImpl
+import com.fatah.data.repository.HesGamesRepositoryImpl
 import com.fatah.domain.entities.GameEntity
-import com.fatah.domain.repository.PurgeGameRepository
+import com.fatah.domain.repository.HesGamesRepository
 import dagger.Binds
 import dagger.Module
 
@@ -13,8 +13,8 @@ import dagger.Module
 abstract class DataModule {
     @Binds
     abstract fun bindsRepository(
-        purgeGameRepositoryImpl: PurgeGameRepositoryImpl
-    ): PurgeGameRepository
+        purgeGameRepositoryImpl: HesGamesRepositoryImpl
+    ): HesGamesRepository
 
     @Binds
     abstract fun bindsGameMapper(

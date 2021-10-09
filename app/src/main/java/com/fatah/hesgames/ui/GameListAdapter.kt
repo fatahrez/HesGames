@@ -1,4 +1,4 @@
-package com.fatah.purgegame.ui
+package com.fatah.hesgames.ui
 
 import android.view.LayoutInflater
 import android.view.View
@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.fatah.presentation.models.Game
-import com.fatah.purgegame.R
+import com.fatah.hesgames.R
 
 class GameListAdapter(
     private val listener: GameClickListener

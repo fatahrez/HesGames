@@ -1,9 +1,9 @@
-package com.fatah.purgegame.di
+package com.fatah.hesgames.di
 
 import android.app.Application
 import com.fatah.data.models.GameData
 import com.fatah.data.repository.LocalDataSource
-import com.fatah.local.database.PurgeGameDB
+import com.fatah.local.database.HesGamesDB
 import com.fatah.local.mappers.GameDataLocalMapper
 import com.fatah.local.mappers.Mapper
 import com.fatah.local.models.GameLocal
@@ -33,11 +33,11 @@ class LocalPersistenceModule {
     @Singleton
     fun providesDatabase(
         application: Application
-    ) = PurgeGameDB.getInstance(application.applicationContext)
+    ) = HesGamesDB.getInstance(application.applicationContext)
 
     @Provides
     @Singleton
     fun providesGameDao(
-        purgeGameDB: PurgeGameDB
-    ) = purgeGameDB.gameDao()
+        hesGamesDB: HesGamesDB
+    ) = hesGamesDB.gameDao()
 }
