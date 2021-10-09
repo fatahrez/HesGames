@@ -1,5 +1,6 @@
 package com.fatah.purgegame.ui
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -35,7 +36,6 @@ class MainActivity : AppCompatActivity(),
         setContentView(R.layout.activity_main)
 
         val gameRecyclerView: RecyclerView = findViewById(R.id.gameRecyclerView)
-        val textView : TextView = findViewById(R.id.textView)
 
         gameRecyclerView.layoutManager = LinearLayoutManager(this)
         gameRecyclerView.adapter = gameListAdapter
@@ -53,7 +53,6 @@ class MainActivity : AppCompatActivity(),
                 Status.SUCCESS -> {
                     Log.i(TAG, "onCreate: success ${it.data}")
                     Log.i(TAG, "onCreate: $it")
-                    textView.text = it.toString()
                     it.data?.let {games ->
 //                        Log.i(TAG, "onCreate: games ${games.toString()}")
                         gameListAdapter.populate(games)
@@ -64,6 +63,8 @@ class MainActivity : AppCompatActivity(),
     }
 
     override fun onGameTapped(game: Game) {
-        Toast.makeText(this, "${game.title} clicked", Toast.LENGTH_SHORT).show()
+        val intent = Intent(this, GameDetailActivity::class.java)
+        intent.putExtra("game_id", game.id)
+        startActivity(intent)
     }
 }

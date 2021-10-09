@@ -6,6 +6,8 @@ import io.reactivex.rxjava3.core.Observable
 interface LocalDataSource {
     fun getGames(): Observable<List<GameData>>
 
+    fun getGame(id: Int): Observable<GameData>
+
     fun saveGames(games: List<GameData>)
 
     fun updateGame(game: GameData)

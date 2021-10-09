@@ -3,8 +3,10 @@ package com.fatah.purgegame.ui
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
 import com.fatah.presentation.models.Game
 import com.fatah.purgegame.R
 
@@ -23,8 +25,12 @@ class GameListAdapter(
     inner class GameVH(itemView: View): RecyclerView.ViewHolder(itemView) {
         fun bind(game: Game) {
             val titleTextView: TextView = itemView.findViewById(R.id.titleTextView)
+            val thumbnailImageView: ImageView = itemView.findViewById(R.id.thumbnailImageView)
+            val shortDescriptionTextView: TextView = itemView.findViewById(R.id.shortDescriptionTextView)
 
             titleTextView.text = game.title
+            thumbnailImageView.load(game.thumbnail)
+            shortDescriptionTextView.text = game.shortDescription
 
             itemView.setOnClickListener {
                 listener.onGameTapped(game)

@@ -21,6 +21,13 @@ class LocalDataSourceImpl @Inject constructor(
             }
     }
 
+    override fun getGame(id: Int): Observable<GameData> {
+        return gameDao.getIndividualGame(id)
+            .map {
+                gameDataLocalMapper.from(it)
+            }
+    }
+
     override fun saveGames(games: List<GameData>) {
        gameDao.addGames(
             games.map {

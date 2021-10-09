@@ -8,6 +8,7 @@ import com.fatah.presentation.mappers.GameDomainPresentationMapper
 import com.fatah.presentation.mappers.Mapper
 import com.fatah.presentation.models.Game
 import com.fatah.presentation.viewmodels.GameViewModel
+import com.fatah.presentation.viewmodels.IndividualGameViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -23,6 +24,11 @@ abstract class PresentationModule {
     @IntoMap
     @ViewModelKey(GameViewModel::class)
     abstract fun bindsGameViewModel(gameViewModel: GameViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(IndividualGameViewModel::class)
+    abstract fun bindsIndividualGameViewModel(individualGameViewModel: IndividualGameViewModel): ViewModel
 
     @Binds
     abstract fun bindsGameMapper(

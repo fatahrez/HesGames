@@ -20,4 +20,11 @@ class RemoteDataSourceImpl @Inject constructor(
                 }
             }
     }
+
+    override fun getGame(id: Int): Observable<GameData> {
+        return purgeGameService.getGame(id)
+            .map {
+                gameDataNetworkMapper.from(it)
+            }
+    }
 }

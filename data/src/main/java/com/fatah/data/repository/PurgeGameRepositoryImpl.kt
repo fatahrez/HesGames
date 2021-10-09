@@ -27,4 +27,12 @@ class PurgeGameRepositoryImpl @Inject    constructor(
             }
         }.concatWith(localCachedGames)
     }
+
+    override fun getGame(id: Int): Observable<GameEntity> {
+        return remoteDataSource.getGame(id).map {
+            localDataSource.updateGame(it)
+
+            gameDomainDataMapper.from(it)
+        }
+    }
 }

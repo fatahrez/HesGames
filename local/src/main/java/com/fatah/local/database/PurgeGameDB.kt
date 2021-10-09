@@ -9,7 +9,7 @@ import com.fatah.local.models.GameLocal
 
 @Database(
     entities = [GameLocal::class],
-    version = 1,
+    version = 2,
     exportSchema = false
 )
 abstract class PurgeGameDB : RoomDatabase(){
@@ -28,13 +28,15 @@ abstract class PurgeGameDB : RoomDatabase(){
                             context,
                             PurgeGameDB::class.java,
                             DATABASE_NAME
-                        ).build()
+                        )
+                            .fallbackToDestructiveMigration().build()
                     }
                 }
             }
             return INSTANCE!!
         }
     }
+
 
     abstract fun gameDao(): GameDao
 }
