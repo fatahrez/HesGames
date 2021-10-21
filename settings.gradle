@@ -6,7 +6,7 @@ dependencyResolutionManagement {
         jcenter() // Warning: this repository is going to shut down soon
     }
 }
-rootProject.name = "PurgeGame"
+rootProject.name = "HesGames"
 include ':app'
 include ':domain'
 include ':data'
