@@ -1,8 +1,11 @@
 package com.fatah.hesgames.ui
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
+import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -11,46 +14,45 @@ import com.fatah.presentation.models.Game
 import com.fatah.hesgames.R
 
 class GameListAdapter(
-    private val listener: GameClickListener
-): RecyclerView.Adapter<GameListAdapter.GameVH>() {
+    private val context: Context,
+    private val gameList: List<Game>
+): BaseAdapter() {
 
-    private val gameList: MutableList<Game> = ArrayList()
+    private var layoutInflater: LayoutInflater? = null
 
-    fun populate(games: List<Game>) {
-        gameList.clear()
-        gameList.addAll(games)
-        notifyDataSetChanged()
+    override fun getCount(): Int {
+        return gameList.size
     }
 
-    inner class GameVH(itemView: View): RecyclerView.ViewHolder(itemView) {
-        fun bind(game: Game) {
-            val titleTextView: TextView = itemView.findViewById(R.id.titleTextView)
-            val thumbnailImageView: ImageView = itemView.findViewById(R.id.thumbnailImageView)
-            val shortDescriptionTextView: TextView = itemView.findViewById(R.id.shortDescriptionTextView)
+    override fun getItem(position: Int): Any {
+        return gameList[position]
+    }
 
-            titleTextView.text = game.title
-            thumbnailImageView.load(game.thumbnail)
-            shortDescriptionTextView.text = game.shortDescription
+    override fun getItemId(position: Int): Long {
+        return position.toLong()
+    }
 
-            itemView.setOnClickListener {
-                listener.onGameTapped(game)
-            }
+    override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
+        var convertView = convertView
+
+        if (layoutInflater == null) {
+            layoutInflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         }
-    }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GameListAdapter.GameVH {
-        val inflater = LayoutInflater.from(parent.context)
-        return GameVH(
-            inflater.inflate(R.layout.item_game, parent, false)
-        )
-    }
+        if (convertView == null ) {
+            convertView = layoutInflater!!.inflate(R.layout.item_game, null)
+        }
+        val titleTextView: TextView = convertView!!.findViewById(R.id.IndividualTitleTextView)
+        val thumbnailImageView: ImageView = convertView!!.findViewById(R.id.thumbnailImageView)
+        val windowManager = context.getSystemService(Context.WINDOW_SERVICE) as WindowManager
+        thumbnailImageView.layoutParams.height = windowManager
+            .defaultDisplay.height/5
+//        val shortDescriptionTextView: TextView = convertView!!.findViewById(R.id.shortDescriptionTextView)
 
-    override fun onBindViewHolder(holder: GameListAdapter.GameVH, position: Int) =
-        holder.bind(gameList[position])
+        titleTextView.text = gameList[position].title
+        thumbnailImageView.load(gameList[position].thumbnail)
+//        shortDescriptionTextView.text = gameList[position].shortDescription
 
-    override fun getItemCount()= gameList.size
-
-    interface GameClickListener {
-        fun onGameTapped(game: Game)
+        return convertView
     }
 }

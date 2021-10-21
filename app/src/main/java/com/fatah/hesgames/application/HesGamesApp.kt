@@ -1,11 +1,11 @@
 package com.fatah.hesgames.application
 
-import com.fatah.hesgames.di.DaggerPurgeGameAppComponent
+import com.fatah.hesgames.di.DaggerHesGamesAppComponent
 import dagger.android.AndroidInjector
 import dagger.android.DaggerApplication
 
-class PurgeGameApp: DaggerApplication() {
+class HesGamesApp: DaggerApplication() {
     override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
-        return DaggerPurgeGameAppComponent.builder().application(this).build()
+        return DaggerHesGamesAppComponent.builder().application(this).build()
     }
 }

@@ -1,7 +1,7 @@
 package com.fatah.hesgames.di
 
 import android.app.Application
-import com.fatah.hesgames.application.PurgeGameApp
+import com.fatah.hesgames.application.HesGamesApp
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule
@@ -20,14 +20,14 @@ import javax.inject.Singleton
         AppModule::class
     ]
 )
-interface PurgeGameAppComponent: AndroidInjector<PurgeGameApp> {
+interface HesGamesAppComponent: AndroidInjector<HesGamesApp> {
     @Component.Builder
     interface Builder {
         @BindsInstance
         fun application(app: Application): Builder
 
-        fun build():PurgeGameAppComponent
+        fun build():HesGamesAppComponent
     }
 
-    override fun inject(instance: PurgeGameApp?)
+    override fun inject(instance: HesGamesApp?)
 }

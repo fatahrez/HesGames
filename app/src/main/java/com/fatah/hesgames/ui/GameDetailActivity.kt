@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import coil.load
@@ -31,7 +32,14 @@ class GameDetailActivity : AppCompatActivity() {
         setContentView(R.layout.activity_game_detail)
 
         val individualGameImageView: ImageView = findViewById(R.id.individualGameImageView)
-        
+        val individualTitleTextView: TextView = findViewById(R.id.IndividualTitleTextView)
+        val platformTextView: TextView = findViewById(R.id.platformTextView)
+        val descriptionTextView: TextView = findViewById(R.id.shortDescriptionTextView)
+
+        val screenshot1ImageView: ImageView = findViewById(R.id.screenshot1ImageView)
+        val screenshot2ImageView: ImageView = findViewById(R.id.screenshot2ImageView)
+        val screenshot3ImageView: ImageView = findViewById(R.id.screenshot3ImageView)
+
         individualGameViewModel = ViewModelProvider(this, viewModelFactory)
             .get(IndividualGameViewModel::class.java)
         
@@ -42,16 +50,38 @@ class GameDetailActivity : AppCompatActivity() {
                         Log.i(TAG, "onCreate: loading ...")
                     }
                     Status.ERROR -> {
-                        Log.e(TAG, "onCreate: Error ${it.message}", 
-                            throw IllegalArgumentException(it.message)
-                        )
+                        Log.e(TAG, "onCreate: Error ${it.message}")
                     }
                     Status.SUCCESS -> {
+                        val data = it.data!!
 
                         individualGameImageView.layoutParams.height = windowManager
                             .defaultDisplay.height/3
-                        individualGameImageView.load(it.data?.thumbnail)
+                        individualGameImageView.load(data.thumbnail)
 
+                        individualTitleTextView.text = data.title
+                        platformTextView.text = data.platform
+
+                        screenshot1ImageView.layoutParams.width = windowManager
+                            .defaultDisplay.width/3
+                        screenshot1ImageView.layoutParams.height = windowManager
+                            .defaultDisplay.height/4
+
+                        screenshot2ImageView.layoutParams.width = windowManager
+                            .defaultDisplay.width/3
+                        screenshot2ImageView.layoutParams.height = windowManager
+                            .defaultDisplay.height/4
+
+                        screenshot3ImageView.layoutParams.width = windowManager
+                            .defaultDisplay.width/3
+                        screenshot3ImageView.layoutParams.height = windowManager
+                            .defaultDisplay.height/4
+
+                        screenshot1ImageView.load("https://www.freetogame.com/g/1/dauntless-1.jpg")
+                        screenshot2ImageView.load("https://www.freetogame.com/g/1/dauntless-2.jpg")
+                        screenshot3ImageView.load("https://www.freetogame.com/g/1/dauntless-3.jpg")
+
+                        descriptionTextView.text = data.description
                     }
                 }
             }

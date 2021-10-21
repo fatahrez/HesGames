@@ -7,12 +7,10 @@
     android:layout_marginStart="16dp"
     android:layout_marginTop="8dp"
     android:layout_marginEnd="16dp"
-    android:backgroundTint="#F5F5F5 "
-    android:checkable="true"
-    android:clickable="true"
     android:elevation="20dp"
-    android:focusable="true"
-    app:cardCornerRadius="5dp"
+    android:focusable="false"
+    android:focusableInTouchMode="false"
+    app:cardCornerRadius="10dp"
     app:cardElevation="50dp"
     app:cardMaxElevation="100dp"
     app:contentPadding="5dp">
@@ -22,36 +20,37 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/titleTextView"
+            android:id="@+id/IndividualTitleTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:textAppearance="?attr/textAppearanceHeadline6"
+            android:maxLines="1"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/thumbnailImageView"
-            tools:text="Description"
-            />
+            tools:text="Description" />
 
         <ImageView
             android:id="@+id/thumbnailImageView"
             android:layout_width="0dp"
-            android:layout_height="194dp"
+            android:layout_height="200dp"
             android:scaleType="centerCrop"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:srcCompat="@tools:sample/avatars" />
 
-        <TextView
-            android:id="@+id/shortDescriptionTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:textAppearance="?attr/textAppearanceBody2"
-            android:textColor="?android:attr/textColorSecondary"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/titleTextView"
-            tools:text="Description here" />
+        <!--        <TextView-->
+        <!--            android:id="@+id/shortDescriptionTextView"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginStart="8dp"-->
+        <!--            android:textAppearance="?attr/textAppearanceBody2"-->
+        <!--            android:textColor="?android:attr/textColorSecondary"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toBottomOf="@+id/IndividualTitleTextView"-->
+        <!--            android:maxLines="3"-->
+        <!--            tools:text="Description here" />-->
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
