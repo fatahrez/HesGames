@@ -16,7 +16,8 @@
         android:theme="@style/Theme.HesGames">
         <activity
             android:name="com.fatah.hesgames.ui.GameDetailActivity"
-            android:exported="true"/>
+            android:exported="true"
+            android:parentActivityName=".ui.MainActivity"/>
         <activity
             android:name="com.fatah.hesgames.ui.MainActivity"
             android:exported="true">
