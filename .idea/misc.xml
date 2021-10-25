@@ -9,7 +9,9 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.24895833333333334" />
         <entry key="app/src/main/res/layout/item_game.xml" value="0.335" />
         <entry key="app/src/main/res/menu/menu.xml" value="0.39479166666666665" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2630769230769231" />
         <entry key="app/src/main/res/xml/preferences.xml" value="0.38903985507246375" />
+        <entry key="local/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.24791666666666667" />
       </map>
     </option>
   </component>

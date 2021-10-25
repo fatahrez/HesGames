@@ -8,12 +8,13 @@
     <application
         android:name="com.fatah.hesgames.application.HesGamesApp"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_launcher_app"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_launcher_app"
         android:supportsRtl="true"
-        tools:replace="android:theme"
-        android:theme="@style/Theme.HesGames">
+        tools:replace="android:icon, android:roundIcon"
+        android:theme="@style/Theme.HesGames"
+        >
         <activity
             android:name="com.fatah.hesgames.ui.GameDetailActivity"
             android:exported="true"
