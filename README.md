@@ -10,7 +10,7 @@
 <img src="https://raw.githubusercontent.com/fatahrez/HesGames/master/Screenshots/Screenshot_1634823961.png" width="240" height="510">.<img src="https://raw.githubusercontent.com/fatahrez/HesGames/master/Screenshots/Screenshot_1634823966.png" width="240" height="510">
 <img src="https://raw.githubusercontent.com/fatahrez/HesGames/master/Screenshots/Screenshot_1634824019.png" width="240" height="510">
 <img src="https://raw.githubusercontent.com/fatahrez/HesGames/master/Screenshots/Screenshot_1634824097.png" width="240" height="510">
-<img src="https://raw.githubusercontent.com/fatahrez/HesGames/master/Screenshots/Screenshot_1634838086.png" width="240" height="510">.<img src="" width="240" height="510">
+<img src="https://raw.githubusercontent.com/fatahrez/HesGames/master/Screenshots/Screenshot_1634838086.png" width="240" height="510">.<img src="https://github.com/fatahrez/HesGames/blob/master/Screenshots/hesgames.gif?raw=true" width="240" height="510">
 ---
 
 ### Table of Contents
