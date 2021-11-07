@@ -12,5 +12,6 @@ data class Game(
     val publisher: String,
     val developer: String,
     val releaseDate: String,
-    val freetogameProfileUrl: String
+    val freetogameProfileUrl: String,
+    var screenshots: List<Screenshot>?
 )

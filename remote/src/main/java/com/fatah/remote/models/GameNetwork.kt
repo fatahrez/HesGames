@@ -14,5 +14,6 @@ data class GameNetwork(
     @SerializedName("publisher") val publisher: String,
     @SerializedName("developer") val developer: String,
     @SerializedName("release_date") val releaseDate: String,
-    @SerializedName("freetogame_profile_url") val freetogameProfileUrl: String
+    @SerializedName("freetogame_profile_url") val freetogameProfileUrl: String,
+    @SerializedName("screenshots") var screenshots: List<ScreenshotNetwork>?
 )

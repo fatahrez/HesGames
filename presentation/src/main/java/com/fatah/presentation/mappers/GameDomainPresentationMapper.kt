@@ -1,7 +1,9 @@
 package com.fatah.presentation.mappers
 
 import com.fatah.domain.entities.GameEntity
+import com.fatah.domain.entities.ScreenshotEntity
 import com.fatah.presentation.models.Game
+import com.fatah.presentation.models.Screenshot
 import javax.inject.Inject
 
 class GameDomainPresentationMapper @Inject constructor(): Mapper<GameEntity, Game> {
@@ -18,11 +20,15 @@ class GameDomainPresentationMapper @Inject constructor(): Mapper<GameEntity, Gam
             publisher = e.publisher,
             developer = e.developer,
             releaseDate = e.releaseDate,
-            freetogameProfileUrl = e.freetogameProfileUrl
+            freetogameProfileUrl = e.freetogameProfileUrl,
+            screenshots = e.screenshots?.map {
+                ScreenshotEntity(it.id, it.image)
+            }
         )
     }
 
     override fun to(t: GameEntity): Game {
+
         return Game(
             id = t.id,
             title = t.title,
@@ -35,7 +41,10 @@ class GameDomainPresentationMapper @Inject constructor(): Mapper<GameEntity, Gam
             publisher = t.publisher,
             developer = t.developer,
             releaseDate = t.releaseDate,
-            freetogameProfileUrl = t.freetogameProfileUrl
+            freetogameProfileUrl = t.freetogameProfileUrl,
+            screenshots = t.screenshots?.map {
+                Screenshot(it.id, it.image)
+            }
         )
     }
 }

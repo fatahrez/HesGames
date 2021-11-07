@@ -3,10 +3,13 @@ package com.fatah.hesgames.di
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.fatah.domain.entities.GameEntity
+import com.fatah.domain.entities.ScreenshotEntity
 import com.fatah.presentation.factory.ViewModelFactory
 import com.fatah.presentation.mappers.GameDomainPresentationMapper
 import com.fatah.presentation.mappers.Mapper
+import com.fatah.presentation.mappers.ScreenshotDomainPresentationMapper
 import com.fatah.presentation.models.Game
+import com.fatah.presentation.models.Screenshot
 import com.fatah.presentation.viewmodels.GameViewModel
 import com.fatah.presentation.viewmodels.IndividualGameViewModel
 import dagger.Binds
@@ -34,4 +37,9 @@ abstract class PresentationModule {
     abstract fun bindsGameMapper(
         gameDomainPresentationMapper: GameDomainPresentationMapper
     ): Mapper<GameEntity, Game>
+
+    @Binds
+    abstract fun bindsScreenshotMapper(
+        screenshotDomainPresentationMapper: ScreenshotDomainPresentationMapper
+    ): Mapper<ScreenshotEntity, Screenshot>
 }

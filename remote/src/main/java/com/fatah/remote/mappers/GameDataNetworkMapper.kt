@@ -1,11 +1,14 @@
 package com.fatah.remote.mappers
 
 import com.fatah.data.models.GameData
+import com.fatah.data.models.ScreenshotData
 import com.fatah.remote.models.GameNetwork
+import com.fatah.remote.models.ScreenshotNetwork
 import javax.inject.Inject
 
 class GameDataNetworkMapper @Inject constructor(): Mapper<GameData, GameNetwork> {
     override fun from(e: GameNetwork): GameData {
+
         return GameData(
             id = e.id,
             title = e.title,
@@ -18,7 +21,10 @@ class GameDataNetworkMapper @Inject constructor(): Mapper<GameData, GameNetwork>
             publisher = e.publisher,
             developer = e.releaseDate,
             releaseDate = e.releaseDate,
-            freetogameProfileUrl = e.freetogameProfileUrl
+            freetogameProfileUrl = e.freetogameProfileUrl,
+            screenshots = e.screenshots?.map {
+                ScreenshotData(it.id, it.image)
+            }
         )
     }
 
@@ -35,7 +41,10 @@ class GameDataNetworkMapper @Inject constructor(): Mapper<GameData, GameNetwork>
             publisher = t.publisher,
             developer = t.developer,
             releaseDate = t.releaseDate,
-            freetogameProfileUrl = t.freetogameProfileUrl
+            freetogameProfileUrl = t.freetogameProfileUrl,
+            screenshots = t.screenshots?.map {
+                ScreenshotNetwork(it.id, it.image)
+            }
         )
     }
 }

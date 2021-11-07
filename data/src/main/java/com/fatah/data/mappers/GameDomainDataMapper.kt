@@ -1,10 +1,13 @@
 package com.fatah.data.mappers
 
 import com.fatah.data.models.GameData
+import com.fatah.data.models.ScreenshotData
 import com.fatah.domain.entities.GameEntity
+import com.fatah.domain.entities.ScreenshotEntity
 import javax.inject.Inject
 
 class GameDomainDataMapper @Inject constructor(): Mapper<GameEntity, GameData> {
+
     override fun from(e: GameData): GameEntity {
         return GameEntity(
             id = e.id,
@@ -18,11 +21,15 @@ class GameDomainDataMapper @Inject constructor(): Mapper<GameEntity, GameData> {
             publisher = e.publisher,
             developer = e.developer,
             releaseDate = e.releaseDate,
-            freetogameProfileUrl = e.freetogameProfileUrl
+            freetogameProfileUrl = e.freetogameProfileUrl,
+            screenshots = e.screenshots?.map {
+                ScreenshotEntity(it.id, it.image)
+            }
         )
     }
 
     override fun to(t: GameEntity): GameData {
+
         return GameData(
             id = t.id,
             title = t.title,
@@ -35,7 +42,10 @@ class GameDomainDataMapper @Inject constructor(): Mapper<GameEntity, GameData> {
             publisher = t.publisher,
             developer = t.developer,
             releaseDate = t.releaseDate,
-            freetogameProfileUrl = t.freetogameProfileUrl
+            freetogameProfileUrl = t.freetogameProfileUrl,
+            screenshots = t.screenshots?.map {
+                ScreenshotData(it.id, it.image)
+            }
         )
     }
 }

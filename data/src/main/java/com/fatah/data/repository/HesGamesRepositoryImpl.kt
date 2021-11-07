@@ -1,22 +1,26 @@
 package com.fatah.data.repository
 
 import com.fatah.data.mappers.Mapper
+import com.fatah.data.mappers.ScreenshotDomainDataMapper
 import com.fatah.data.models.GameData
+import com.fatah.data.models.ScreenshotData
 import com.fatah.domain.entities.GameEntity
+import com.fatah.domain.entities.ScreenshotEntity
 import com.fatah.domain.repository.HesGamesRepository
 import io.reactivex.rxjava3.core.Observable
 import javax.inject.Inject
 
 class HesGamesRepositoryImpl @Inject    constructor(
     private val gameDomainDataMapper: Mapper<GameEntity, GameData>,
+    private val screenshotDomainDataMapper: Mapper<ScreenshotEntity, ScreenshotData>,
     private val remoteDataSource: RemoteDataSource,
     private val localDataSource: LocalDataSource
 ): HesGamesRepository{
     override fun getGames(): Observable<List<GameEntity>> {
         val localCachedGames = localDataSource.getGames()
             .map { games ->
-                games.map {
-                    gameDomainDataMapper.from(it)
+                games.map { game ->
+                    gameDomainDataMapper.from(game)
                 }
             }
 
@@ -25,14 +29,22 @@ class HesGamesRepositoryImpl @Inject    constructor(
             games.map {
                 gameDomainDataMapper.from(it)
             }
-        }.concatWith(localCachedGames)
+        }
+            .concatWith(localCachedGames)
     }
 
     override fun getGame(id: Int): Observable<GameEntity> {
-        return remoteDataSource.getGame(id).map {
-            localDataSource.updateGame(it)
+        return remoteDataSource.getGame(id).map { game ->
+            localDataSource.updateGame(game)
 
-            gameDomainDataMapper.from(it)
+            localDataSource.saveScreenshots(game.screenshots!!)
+
+            localDataSource.getIndividualScreenshot(game.id).map {
+                game.screenshots = it
+            }
+//            it.screenshots?.let { it1 -> localDataSource.saveScreenshots(it1) }
+
+            gameDomainDataMapper.from(game)
         }
     }
 }

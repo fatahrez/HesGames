@@ -1,6 +1,7 @@
 package com.fatah.local.mappers
 
 import com.fatah.data.models.GameData
+import com.fatah.data.models.ScreenshotData
 import com.fatah.local.models.GameLocal
 import javax.inject.Inject
 
@@ -18,7 +19,8 @@ class GameDataLocalMapper @Inject constructor(): Mapper<GameData, GameLocal>{
             publisher = e.publisher,
             developer = e.developer,
             releaseDate = e.releaseDate,
-            freetogameProfileUrl = e.freetogameProfileUrl
+            freetogameProfileUrl = e.freetogameProfileUrl,
+            screenshots = null
         )
     }
 
@@ -35,7 +37,8 @@ class GameDataLocalMapper @Inject constructor(): Mapper<GameData, GameLocal>{
             publisher = t.publisher,
             developer = t.developer,
             releaseDate = t.releaseDate,
-            freetogameProfileUrl = t.freetogameProfileUrl
+            freetogameProfileUrl = t.freetogameProfileUrl,
+            screenshots = null
         )
     }
 }

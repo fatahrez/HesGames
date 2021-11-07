@@ -77,9 +77,9 @@ class GameDetailActivity : AppCompatActivity() {
                         screenshot3ImageView.layoutParams.height = windowManager
                             .defaultDisplay.height/4
 
-                        screenshot1ImageView.load("https://www.freetogame.com/g/1/dauntless-1.jpg")
-                        screenshot2ImageView.load("https://www.freetogame.com/g/1/dauntless-2.jpg")
-                        screenshot3ImageView.load("https://www.freetogame.com/g/1/dauntless-3.jpg")
+                        screenshot1ImageView.load(data.screenshots?.get(0)?.image)
+                        screenshot2ImageView.load(data.screenshots?.get(1)?.image)
+                        screenshot3ImageView.load(data.screenshots?.get(2)?.image)
 
                         descriptionTextView.text = data.description
                     }

@@ -1,13 +1,16 @@
 package com.fatah.hesgames.di
 
 import com.fatah.data.models.GameData
+import com.fatah.data.models.ScreenshotData
 import com.fatah.data.repository.RemoteDataSource
 import com.fatah.remote.api.HttpClient
 import com.fatah.remote.api.HttpLogger
 import com.fatah.remote.api.HesGamesService
 import com.fatah.remote.mappers.GameDataNetworkMapper
 import com.fatah.remote.mappers.Mapper
+import com.fatah.remote.mappers.ScreenshotDataNetworkMapper
 import com.fatah.remote.models.GameNetwork
+import com.fatah.remote.models.ScreenshotNetwork
 import com.fatah.remote.source.RemoteDataSourceImpl
 import dagger.Binds
 import dagger.Module
@@ -33,6 +36,11 @@ class RemoteModule {
         fun bindsGameMapper(
             gameDataNetworkMapper: GameDataNetworkMapper
         ): Mapper<GameData, GameNetwork>
+
+        @Binds
+        fun bindsScreenshotMapper(
+            screenshotDataNetworkMapper: ScreenshotDataNetworkMapper
+        ): Mapper<ScreenshotData, ScreenshotNetwork>
     }
 
     @Provides

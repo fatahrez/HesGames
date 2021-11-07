@@ -6,10 +6,11 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.fatah.local.models.GameLocal
+import com.fatah.local.models.ScreenshotLocal
 
 @Database(
-    entities = [GameLocal::class],
-    version = 2,
+    entities = [GameLocal::class, ScreenshotLocal::class],
+    version = 5,
     exportSchema = false
 )
 abstract class HesGamesDB : RoomDatabase(){
@@ -29,7 +30,7 @@ abstract class HesGamesDB : RoomDatabase(){
                             HesGamesDB::class.java,
                             DATABASE_NAME
                         )
-                            .fallbackToDestructiveMigration().build()
+                        .fallbackToDestructiveMigration().build()
                     }
                 }
             }
@@ -39,4 +40,6 @@ abstract class HesGamesDB : RoomDatabase(){
 
 
     abstract fun gameDao(): GameDao
+
+    abstract fun screenshotDao(): ScreenshotDao
 }

@@ -17,5 +17,6 @@ data class GameLocal(
     @ColumnInfo(name = "publisher") val publisher: String,
     @ColumnInfo(name = "developer") val developer: String,
     @ColumnInfo(name = "release_date") val releaseDate: String,
-    @ColumnInfo(name = "freetogame_profile_url") val freetogameProfileUrl: String
+    @ColumnInfo(name = "freetogame_profile_url") var freetogameProfileUrl: String,
+    @ColumnInfo(name = "screenshots") var screenshots: String?
 )
