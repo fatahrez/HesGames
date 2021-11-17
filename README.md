@@ -20,3 +20,12 @@
 - [Author Info](#author-info)
 
 ---
+# description
+
+This is an Android App built using Kotlin and an MVVM Architecture. This app consuem the [FreeToGame API](https://www.freetogame.com/api-doc)
+
+I have created this project to help me with:
+1. Understanding MVVM architecture
+2. How to Implement Multi-Modules and Layer Modularization in Android Apps
+3. Learning how to implement Dagger Dependency Injection
+4. Consuming APIs
