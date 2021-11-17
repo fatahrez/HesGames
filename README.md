@@ -42,5 +42,6 @@ or Http
     $ git clone https://github.com/fatahrez/HesGames.git
 
 Open the project with Android Studio and build using gradle
+
 ---
 # Author Info 
