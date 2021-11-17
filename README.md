@@ -45,3 +45,6 @@ Open the project with Android Studio and build using gradle
 
 ---
 # Author Info 
+
+Twitter - (@Abdullfertah)[https://twitter.com/Abdullfertah]
+LinkedIn - (Abdulfatah)[https://www.linkedin.com/in/abdulfatah-mohamed-83709a177/]
