@@ -20,7 +20,7 @@
 - [Author Info](#author-info)
 
 ---
-# description
+# Description
 
 This is an Android App built using Kotlin and an MVVM Architecture. This app consuem the [FreeToGame API](https://www.freetogame.com/api-doc)
 
@@ -29,3 +29,18 @@ I have created this project to help me with:
 2. How to Implement Multi-Modules and Layer Modularization in Android Apps
 3. Learning how to implement Dagger Dependency Injection
 4. Consuming APIs
+
+---
+# How to Setup
+
+Clone this repo
+
+    $ git clone git@github.com:fatahrez/HesGames.git
+
+or Http
+
+    $ git clone https://github.com/fatahrez/HesGames.git
+
+Open the project with Android Studio and build using gradle
+---
+# Author Info 
