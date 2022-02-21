@@ -77,9 +77,18 @@ class GameDetailActivity : AppCompatActivity() {
                         screenshot3ImageView.layoutParams.height = windowManager
                             .defaultDisplay.height/4
 
-                        screenshot1ImageView.load(data.screenshots?.get(0)?.image)
-                        screenshot2ImageView.load(data.screenshots?.get(1)?.image)
-                        screenshot3ImageView.load(data.screenshots?.get(2)?.image)
+                        when {
+                            !data.screenshots.isNullOrEmpty() -> {
+                                screenshot1ImageView.load(data.screenshots?.get(0)?.image)
+                                screenshot2ImageView.load(data.screenshots?.get(1)?.image)
+                                screenshot3ImageView.load(data.screenshots?.get(2)?.image)
+                            }
+                            else -> {
+                                screenshot1ImageView.setImageResource(R.drawable.download)
+                                screenshot2ImageView.setImageResource(R.drawable.download)
+                                screenshot3ImageView.setImageResource(R.drawable.download)
+                            }
+                        }
 
                         descriptionTextView.text = data.description
                     }
